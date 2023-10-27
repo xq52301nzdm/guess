@@ -37,7 +37,7 @@
             </div>
 
             <!-- PC端视频容器 -->
-            <div class="fixed-video-content">
+            <!-- <div class="fixed-video-content">
               <div
                 class="video-box"
                 @mouseover="(e) => onMouseOver(e, index)"
@@ -48,9 +48,7 @@
                 <video :src="item.src" muted="muted" class="custom-video"></video>
                 <div class="custom-video-text">这是第{{ index }}</div>
               </div>
-            </div>
-
-            <!--  -->
+            </div> -->
           </div>
         </div>
         <SwiperSlide>
@@ -75,6 +73,26 @@
       >
         <SwiperSlide>
           <img src="./../assets/swiper-2-1.jpg" />
+          <div class="mobile-video-box">
+            <SequenceFrame></SequenceFrame>
+            <!-- 移动端视频容器 -->
+            <!-- <Swiper
+              class="swiper-mobile swiper-v"
+              :spaceBetween="32"
+              :modules="modules"
+              slidesPerView="auto"
+              :centerInsufficientSlides="true"
+              :centeredSlides="true"
+              :centeredSlidesBounds="true"
+              @activeIndexChange="mobileActiveIndexChange"
+            >
+              <SwiperSlide v-for="item in videoList" class="mobile-slide">
+                <div class="inner-div">
+                  <video class="mobile-video" :src="item.src" />
+                </div>
+              </SwiperSlide>
+            </Swiper> -->
+          </div>
         </SwiperSlide>
       </Swiper>
     </SwiperSlide>
@@ -98,9 +116,10 @@
 import { ref } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Mousewheel, Autoplay } from "swiper/modules";
+import SequenceFrame from "./../components/SequenceFrame.vue";
 import gasp from "gsap";
 
-let tl = gsap.timeline();
+let tl = gasp.timeline();
 
 const modules = ref([Mousewheel, Autoplay]);
 const oneActiveIndex = ref(0);
@@ -154,7 +173,7 @@ const activeIndexChange = (swiper) => {
 const onMouseOver = (e, index) => {
   if ([...e.target.classList].includes(`custom-video`)) {
     e.target.play();
-    const videoList = [...document.querySelectorAll("video")];
+    const videoList = [...document.querySelectorAll(".custom-video")];
     videoList.map((v, i) => {
       if (i !== index) {
         v.pause();
@@ -162,6 +181,19 @@ const onMouseOver = (e, index) => {
     });
   }
   videoActiveIndex.value = index;
+};
+
+const mobileActiveIndexChange = (swiper) => {
+  const { activeIndex } = swiper;
+  const videoList = [...document.querySelectorAll(".mobile-video")];
+  videoList.map((v, i) => {
+    if (i !== activeIndex) {
+      v.pause();
+    } else {
+      v.play();
+    }
+  });
+  console.log(activeIndex, "index");
 };
 </script>
 <style lang="scss">

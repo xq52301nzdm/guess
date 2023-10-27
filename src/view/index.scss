@@ -128,3 +128,44 @@ body {
 
 
 }
+
+// 移动端
+.swiper-mobile {
+    // width: 900px;
+    height: 350px;
+    background: rgba(0,0,0,0);
+}
+
+.mobile-slide {
+    width: 280px !important;
+    align-items: unset;
+}
+
+.mobile-slide:first-child {
+    margin-left: 32px !important;
+}
+
+.mobile-slide:last-child {
+    margin-right: 32px !important;
+}
+
+.inner-div {
+    width: 80vw;
+
+    video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.mobile-video-box {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
