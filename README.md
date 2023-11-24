@@ -8,6 +8,8 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 
 Will Use Their Technology
 
+如果你有好的想法，欢迎与我们分享
+
 Vue-router
 GASP
 
