@@ -1,6 +1,8 @@
 <template>
   <div class="frame-box" ref="FrameBox"></div>
-  <button @click="play">Click</button>
+  <button class="btn" @click="play">开始</button>
+  <button class="btn" @click="pause">暂停</button>
+  <button class="btn" @click="replay">继续</button>
 </template>
 
 <script setup>
@@ -9,12 +11,12 @@ import { reactive, ref, onMounted, watch, computed } from "vue";
 const FrameBox = ref(null);
 
 const keyframes = [
-  { backgroundImage: "url(/guess/a-1.jpg)" },
-  { backgroundImage: "url(/guess/a-2.jpg)" },
-  { backgroundImage: "url(/guess/a-3.jpg)" },
-  { backgroundImage: "url(/guess/a-4.jpg)" },
-  { backgroundImage: "url(/guess/a-5.jpg)" },
-  { backgroundImage: "url(/guess/a-6.jpg)" },
+  { backgroundImage: "url(/guess/src/assets/frame/a-1.jpg)" },
+  { backgroundImage: "url(/guess/src/assets/frame/a-2.jpg)" },
+  { backgroundImage: "url(/guess/src/assets/frame/a-3.jpg)" },
+  { backgroundImage: "url(/guess/src/assets/frame/a-4.jpg)" },
+  { backgroundImage: "url(/guess/src/assets/frame/a-5.jpg)" },
+  { backgroundImage: "url(/guess/src/assets/frame/a-6.jpg)" },
 ];
 
 const play = () => {
@@ -48,5 +50,11 @@ defineExpose({
     repeat: no-repeat;
     size: contain;
   }
+}
+
+.btn {
+    width: 100vw;
+    height: 20px;
+    margin: 15px;
 }
 </style>

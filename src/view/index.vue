@@ -17,9 +17,7 @@
         edgeSwipeThreshold="0"
         :touchReleaseOnEdges="true"
         @activeIndexChange="activeIndexChange"
-        :autoplay="true"
         :stopOnLastSlide="true"
-        :delay="0"
       >
         <div class="fixed-content">
           <!-- <div class="fixed-content-title">探秘之旅</div> -->

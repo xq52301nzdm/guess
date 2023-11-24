@@ -7,5 +7,14 @@ export const routeConfigList = [
 			isUseCached: false,
 			initParams: {}
 		}
+	},
+	{
+		path: '/v',
+		component: () => import('../view/present.vue'),
+		meta: {
+			title: '各种帧动画',
+			isUseCached: false,
+			initParams: {}
+		}
 	}
 ]
